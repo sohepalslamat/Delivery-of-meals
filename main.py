@@ -26,7 +26,7 @@ class Meals(db.Model):
     inf = db.Column(db.Text)
     price = db.Column(db.Numeric(10, 2))
     requests = db.relationship('Requests', backref='meal')
-    photo_id = db.Column(db.Integer, db.ForeignKey('photos.id'))
+    photo_id = db.Column(db.Integer, db.ForeignKey('Photos.id'))
 
 
 class Requests(db.Model):
@@ -138,4 +138,13 @@ def upload_file():
             name_file = secure_filename(file.filename)
             file.save(path.join(app.config['UPLOAD_FOLDER'], name_file))
             return app.config['UPLOAD_FOLDER'] + '/' + name_file
+
+
 #########################################################################
+
+
+############################# VIEWS #####################################
+@app.route('/')
+def home():
+    context = o.get_all_meal()
+    return render_template('home.html', meals=context)
