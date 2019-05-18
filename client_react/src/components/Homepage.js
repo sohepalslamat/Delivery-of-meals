@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import hi from "../assets/1.png";
-
 const Homepage = () => {
   return (
     <div id="homepage">
@@ -25,7 +23,9 @@ const Homepage = () => {
           <h1>خدمة توصيل الوجبات</h1>
           <p className="slogan">أسرع خدمة توصيل وجبات في العالم العربي</p>
 
-          <button>اطلــــــب الآن</button>
+          <Link to="#" className="order">
+            اطلــــــب الآن
+          </Link>
         </section>
       </div>
     </div>
