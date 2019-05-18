@@ -26,7 +26,7 @@ class Meals(db.Model):
     inf = db.Column(db.Text)
     price = db.Column(db.Numeric(10, 2))
     requests = db.relationship('Requests', backref='meal')
-    photo_id = db.Column(db.Integer, db.ForeignKey('Photos.id'))
+    photo_id = db.Column(db.Integer, db.ForeignKey('photos.id'))
 
 
 class Requests(db.Model):
@@ -34,9 +34,10 @@ class Requests(db.Model):
     name_user = db.Column(db.String(50), nullable=False)
     address = db.Column(db.Text, nullable=False)
     is_active = db.Column(db.Boolean, default=False)
+    amount = db.Column(db.Integer, default=1)
     request_date = db.Column(db.DateTime(timezone=True), default=datetime.now())
     delivery_date = db.Column(db.DateTime(timezone=True), onupdate=datetime.now())
-    meal_id = db.Column(db.Integer, db.ForeignKey('Meals.id'))
+    meal_id = db.Column(db.Integer, db.ForeignKey('meals.id'))
 
 
 class Photos(db.Model):
@@ -146,5 +147,10 @@ def upload_file():
 ############################# VIEWS #####################################
 @app.route('/')
 def home():
-    context = o.get_all_meal()
-    return render_template('home.html', meals=context)
+    return render_template('homepage.html')
+
+
+
+
+#############################################################################
+app.run()
