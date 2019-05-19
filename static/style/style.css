@@ -90,19 +90,13 @@ a {
   position: relative;
   width: 100%;
   height: 100%;
-  background: url("../images/assets/1.png") center center;
+  background: url("./assets/1.png") center center;
   background-size: cover;
 }
 
-/* #homepage .image-container img {
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
- */
-
 /* REQUEST */
-#request-form-container {
+#request-form-container,
+#meal-form-container {
   padding: 4.209rem 10%;
   background: #f4f0f6;
   min-height: 100vh;
@@ -111,7 +105,8 @@ a {
   align-items: center;
 }
 
-#request-form-container > div {
+#request-form-container > div,
+#meal-form-container > div {
   height: 600px;
   display: grid;
   grid-template-columns: 400px 400px;
@@ -120,7 +115,8 @@ a {
   box-shadow: 0 1px 3px #01040436;
 }
 
-#request-form-container .request-form-img {
+#request-form-container .request-form-img,
+#meal-form-container .meal-form-img {
   position: relative;
   width: 100%;
   display: flex;
@@ -128,12 +124,14 @@ a {
   overflow: hidden;
 }
 
-#request-form-container .request-form-img img {
+#request-form-container .request-form-img img,
+#meal-form-container .meal-form-img img {
   height: 100%;
   border-radius: 4px 0 0 4px;
 }
 
-#request-form-container .request-form-img .overlay {
+#request-form-container .request-form-img .overlay,
+#meal-form-container .meal-form-img .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -142,26 +140,30 @@ a {
   z-index: 888;
 }
 
-#request-form {
-  padding: 1.777rem 3.157em;
+#request-form,
+#add-meal-form {
+  padding: 1.777rem 3.157rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-#request-form .input-container {
+#request-form .input-container,
+#add-meal-form .input-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   text-align: right;
 }
 
-#request-form label {
+#request-form label,
+#add-meal-form label {
   padding-bottom: 5px;
 }
 
-#request-form input {
+#request-form input,
+#add-meal-form input {
   margin-bottom: 1.881rem;
   padding: 8px;
   border: none;
@@ -170,11 +172,14 @@ a {
   outline: none;
 }
 
-#request-form input:focus {
+#request-form input:focus,
+#add-meal-form input:focus {
   border-bottom-color: #e57100;
 }
 
-#request-form #submit {
+#request-form #submit,
+#add-meal-form #add-meal-submit,
+#add-meal-form #add-meal-cancel {
   padding: 8px;
   width: 150px;
   color: white;
@@ -182,12 +187,118 @@ a {
   border: none;
   border-radius: 3px;
   font-weight: 600;
-  box-shadow: 0 2px 2px #010404;
+  box-shadow: 0 2px 2px #01040457;
   cursor: pointer;
   text-align: center;
   transition: opacity ease-in-out 300ms;
 }
 
-#request-form #submit:hover {
+#request-form #submit:hover,
+#add-meal-form #add-meal-submit:hover,
+#add-meal-form #add-meal-cancel:hover {
   opacity: 0.9;
+}
+
+/* Add Meal */
+#add-meal {
+  padding: 4.209rem 10%;
+  min-height: 100vh;
+  height: 100%;
+  background: #f4f0f6;
+  display: flex;
+  justify-content: center;
+}
+
+#add-meal-form {
+  padding-top: 122px;
+  position: relative;
+  background: rgb(255, 255, 255);
+  justify-content: flex-start;
+  opacity: 1;
+}
+
+#add-meal-form .form-header {
+  margin: 1.777rem 3.157rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 3.157rem - 3.157rem);
+  height: 50px;
+  color: white;
+  background: #e57100;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.333rem;
+  font-weight: 600;
+  box-shadow: 0 2px 2px #3f1f005b;
+}
+
+#add-meal-form .input-container:first-of-type {
+  margin-bottom: 20px;
+}
+
+#add-meal-form textarea {
+  margin-bottom: 1.881rem;
+  padding: 8px;
+  height: 45px;
+  text-align: right;
+  border: 1.1px solid #2e5e5a;
+  border-radius: 2px;
+  outline: none;
+  font-family: "Cairo", sans-serif;
+}
+
+#add-meal-form textarea:focus {
+  border-color: #e57100;
+}
+
+#add-meal-form .dollar-sign {
+  margin-right: 1rem;
+  font-weight: 600;
+}
+
+#add-meal-form .meal-image {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  border-bottom: #003b36 solid 1px;
+  font-size: 1.777rem;
+  cursor: pointer;
+}
+
+#add-meal-form .meal-image img {
+  margin-left: 8px;
+  height: 100%;
+  opacity: 0.3;
+}
+
+#add-meal-form .meal-image .plus {
+  opacity: 0.3;
+}
+
+#add-meal-form .meal-image span:first-of-type {
+  margin-right: 10px;
+  font-size: 0.8rem;
+}
+
+.input-container-image {
+  margin-bottom: 1.881rem;
+}
+
+#add-meal-form #mealImage {
+  position: absolute;
+  opacity: 0;
+  display: none;
+}
+
+#add-meal-form #add-meal-submit {
+  margin-left: 16px;
+  width: 100px;
+}
+
+#add-meal-form #add-meal-cancel {
+  margin-right: 16px;
+  width: 100px;
+  background: #d00000;
 }
