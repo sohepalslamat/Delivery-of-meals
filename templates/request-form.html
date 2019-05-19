@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/style/style.css" />
+    <title>اطلب الآن</title>
+  </head>
+  <body>
+    <div id="request-form-container">
+      <div>
+        <div class="request-form-img">
+          <img
+            src="../static/images/assets/pexels-photo-1194431.jpeg"
+            alt="form image"
+          />
+          <div class="overlay"></div>
+        </div>
+
+        <form id="request-form">
+          <div class="input-container">
+            <label for="name">:الاسم كامل </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="... أدخل اسمك ثلاثي"
+            />
+          </div>
+          <div class="input-container">
+            <label for="address"> :العنوان </label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="... أدخل العنوان بالتفصيل"
+            />
+          </div>
+          <div class="input-container">
+            <label for="amount"> :الكمية </label>
+            <input type="number" name="amount" id="amount" min="1" value="1" />
+          </div>
+
+          <input type="submit" name="submit" id="submit" value="اطـــلـــب" />
+        </form>
+      </div>
+    </div>
+
+    <script src="../static/js/index.js"></script>
+  </body>
+</html>
