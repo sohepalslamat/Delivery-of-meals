@@ -90,7 +90,7 @@ a {
   position: relative;
   width: 100%;
   height: 100%;
-  background: url("/static/images/assets/1.png") center center;
+  background: url("../images/assets/1.png") center center;
   background-size: cover;
 }
 
@@ -102,5 +102,92 @@ a {
  */
 
 /* REQUEST */
+#request-form-container {
+  padding: 4.209rem 10%;
+  background: #f4f0f6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#request-form-container > div {
+  height: 600px;
+  display: grid;
+  grid-template-columns: 400px 400px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px #01040436;
+}
+
+#request-form-container .request-form-img {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#request-form-container .request-form-img img {
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+}
+
+#request-form-container .request-form-img .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #010404;
+  opacity: 0.02;
+  z-index: 888;
+}
+
 #request-form {
+  padding: 1.777rem 3.157em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#request-form .input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+#request-form label {
+  padding-bottom: 5px;
+}
+
+#request-form input {
+  margin-bottom: 1.881rem;
+  padding: 8px;
+  border: none;
+  text-align: right;
+  border-bottom: 1.1px solid #2e5e5a;
+  outline: none;
+}
+
+#request-form input:focus {
+  border-bottom-color: #e57100;
+}
+
+#request-form #submit {
+  padding: 8px;
+  width: 150px;
+  color: white;
+  background: #003b36;
+  border: none;
+  border-radius: 3px;
+  font-weight: 600;
+  box-shadow: 0 2px 2px #010404;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity ease-in-out 300ms;
+}
+
+#request-form #submit:hover {
+  opacity: 0.9;
 }
