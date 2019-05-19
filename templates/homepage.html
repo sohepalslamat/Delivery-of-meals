@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
     <link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
@@ -20,12 +21,8 @@
 
           <nav class="header-nav">
             <div>
-              <Link to="#">تسجيل دخول</Link>
-              <span> | </span>
-              <Link to="#">مستخدم جديد</Link>
+              <a href="#" >قسم الإدارة</a>
             </div>
-            <Link to="#">الاستفسارات</Link>
-            <Link to="#">اتصل بنا</Link>
           </nav>
         </header>
 

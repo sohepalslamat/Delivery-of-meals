@@ -23,7 +23,7 @@ db = SQLAlchemy(app)
 class Meals(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(50), nullable=False)
-    inf = db.Column(db.Text)
+    desc = db.Column(db.Text)
     price = db.Column(db.Numeric(10, 2))
     requests = db.relationship('Requests', backref='meal')
     photo_id = db.Column(db.Integer, db.ForeignKey('photos.id'))
@@ -53,8 +53,8 @@ class operations:
     # This operations which control the tables
 
     # Meals
-    def add_meal(self, name, inf='', price=None, photo_id=None):
-        meal = Meals(name=name, inf=inf, price=price, photo_id=photo_id)
+    def add_meal(self, name, desc='', price=None, photo_id=None):
+        meal = Meals(name=name, desc=desc, price=price, photo_id=photo_id)
         db.session.add(meal)
         db.session.commit()
         return meal.id
@@ -123,9 +123,9 @@ def allowed_file(filename):
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
-        if 'photo_url' not in request.files:
+        if 'mealImage' not in request.files:
             return redirect(request.url)
-        file = request.files['photo_url']
+        file = request.files['mealImage']
         # if user does not select file, browser also
         # submit a empty part without filename
         name_file = file.filename
@@ -146,11 +146,27 @@ def upload_file():
 
 ############################# VIEWS #####################################
 @app.route('/')
-def home():
+def homepage():
     return render_template('homepage.html')
 
 
+######### ADMIN ##########
+@app.route('/admin/add_meal', methods=['POST', 'GET'])
+def add_meal():
+    if request.method == 'POST':
+        try:
+            url_photo = upload_file()
+            photo_id = o.add_photo(url=url_photo)
+            o.add_meal(name=request.form['mealName'], desc=request.form['mealDesc'],
+                       price=request.form['price'], photo_id=photo_id)
+            return redirect(url_for('homepage'))
+        except:
+            return redirect(request.url)
+    elif request.method == 'GET':
+        return render_template('add-meal.html')
 
+
+#################################
 
 #############################################################################
 app.run()
