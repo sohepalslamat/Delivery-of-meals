@@ -27,11 +27,12 @@ a {
 
 #header .header-nav > a {
   margin-right: 1.777rem;
-}
-
-#header .header-nav a {
   color: #012622;
   transition: opacity ease-in-out 300ms;
+}
+
+#header .header-nav a:first-of-type {
+  margin: 0;
 }
 
 #header .header-nav a:hover {
@@ -224,13 +225,12 @@ a {
   right: 0;
   width: calc(100% - 3.157rem - 3.157rem);
   height: 50px;
-  color: white;
-  background: #e57100;
+  color: #e57100;
+  border-bottom: #e57100 solid 1.5px;
   text-align: center;
   line-height: 50px;
   font-size: 1.333rem;
   font-weight: 600;
-  box-shadow: 0 2px 2px #3f1f005b;
 }
 
 #add-meal-form .input-container:first-of-type {
@@ -301,4 +301,85 @@ a {
   margin-right: 16px;
   width: 100px;
   background: #d00000;
+}
+
+/* EDIT MEAL */
+
+#main-edit {
+  padding: 4.209rem 10%;
+  min-height: calc(100vh - 2.666rem - 30px);
+  background: #f4f0f6;
+}
+
+#main-edit .meals-container {
+  margin-bottom: 1.777rem;
+  padding: 1.888rem 2.369rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2.369rem;
+  background: white;
+}
+
+#main-edit .meal {
+  width: 100%;
+}
+
+#main-edit .meal > p:first-of-type {
+  padding: 8px 0;
+  color: white;
+  background: #e7d401;
+  text-align: center;
+  border-radius: 4px 4px 0 0;
+}
+
+#main-edit .meal img {
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  border-radius: 0 0 4px 4px;
+}
+
+#main-edit .meal > div:last-of-type {
+  display: flex;
+  justify-content: center;
+}
+
+#main-edit button {
+  padding: 8px;
+  width: 100px;
+  color: white;
+  background: #003b36;
+  border: none;
+  border-radius: 3px;
+  font-weight: 600;
+  box-shadow: 0 2px 2px #01040457;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity ease-in-out 300ms;
+}
+
+#main-edit button:hover {
+  opacity: 0.9;
+}
+
+#main-edit .edit-btn {
+  margin-left: 8px;
+}
+
+#main-edit .delete-btn {
+  margin-right: 8px;
+  background: #d00000;
+}
+
+#edit-form {
+  padding: 10%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.322);
+}
+
+.edit-form-hide {
+  display: none;
 }
