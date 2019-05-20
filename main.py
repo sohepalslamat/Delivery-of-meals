@@ -68,11 +68,15 @@ class operations:
     def get_meal_by_name(self, name):
         return Meals.query.filter(Meals.name == name).first()
 
-    def update_meal(self, id, name, inf, price):
+    def update_meal(self, id, name, desc, price):
         meal = self.get_meal_by_id(id)
         meal.name = name
-        meal.inf = inf
+        meal.desc = desc
         meal.price = price
+        db.session.commit()
+
+    def delete_meal(self, id):
+        Meals.query.filter_by(id=id).delete()
         db.session.commit()
 
     # Requests
@@ -164,6 +168,39 @@ def add_meal():
             return redirect(request.url)
     elif request.method == 'GET':
         return render_template('add-meal.html')
+
+
+@app.route('/admin/meals/update/<int:id>', methods=['GET', 'POST'])
+def update_meal(id):
+    if request.method == 'POST':
+        try:
+            url_photo = upload_file()
+            if url_photo != '':
+                meal = o.get_meal_by_id(id)
+                photo_id = meal.photo.id
+                last_url = o.get_url_photo_by_id(photo_id)
+                if path.exists(last_url):
+                    remove(last_url)
+                o.update_photo(id=photo_id, url=url_photo)
+            o.update_meal(id=id, name=request.form['mealName'], desc=request.form['mealDesc'],
+                          price=request.form['price'])
+            return redirect(url_for('homepage'))
+        except:
+            return redirect(request.url)
+    elif request.method == 'GET':
+        context = o.get_meal_by_id(id)
+        return render_template('update-meal.html', meal=context)
+
+
+@app.route('/admin/meals/delete/<int:id>')
+def delete_meal(id):
+    meal = o.get_meal_by_id(id)
+    photo_id = meal.photo.id
+    photo_url = o.get_url_photo_by_id(photo_id)
+    if path.exists(photo_url):
+        remove(photo_url)
+    o.delete_meal(id)
+    return redirect(url_for('homepage'))
 
 
 #################################
