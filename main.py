@@ -149,12 +149,19 @@ def upload_file():
 
 
 ############################# VIEWS #####################################
+
 @app.route('/')
 def homepage():
     return render_template('homepage.html')
 
 
-######### ADMIN ##########
+######### Admin ##########
+
+@app.route('/admin')
+def admin():
+    return render_template('admin-page.html')
+
+
 @app.route('/admin/add_meal', methods=['POST', 'GET'])
 def add_meal():
     if request.method == 'POST':
@@ -168,6 +175,12 @@ def add_meal():
             return redirect(request.url)
     elif request.method == 'GET':
         return render_template('add-meal.html')
+
+
+@app.route('/admin/meals')
+def show_meals_for_admin():
+    meals = o.get_all_meal()
+    return render_template('meals-page.html', meals=meals)
 
 
 @app.route('/admin/meals/update/<int:id>', methods=['GET', 'POST'])
@@ -184,7 +197,7 @@ def update_meal(id):
                 o.update_photo(id=photo_id, url=url_photo)
             o.update_meal(id=id, name=request.form['mealName'], desc=request.form['mealDesc'],
                           price=request.form['price'])
-            return redirect(url_for('homepage'))
+            return redirect(url_for('show_meals_for_admin'))
         except:
             return redirect(request.url)
     elif request.method == 'GET':
@@ -200,10 +213,11 @@ def delete_meal(id):
     if path.exists(photo_url):
         remove(photo_url)
     o.delete_meal(id)
-    return redirect(url_for('homepage'))
+    return redirect(url_for('show_meals_for_admin'))
 
 
-#################################
+#############ُ End Admin ###############
+
 
 #############################################################################
 app.run()
