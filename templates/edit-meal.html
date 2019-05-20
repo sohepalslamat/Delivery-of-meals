@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
 
-    <title>عرض و تعديل الوجبات</title>
+    <title>تعديل الوجبات</title>
   </head>
   <body>
     <header id="header">
@@ -24,40 +24,7 @@
     </header>
 
     <main id="main-edit">
-      <section class="meals-container">
-        <!-- Template -->
-        <!-- <div id="1" class="meal">
-          <p>وجبة برجر</p>
-          <img src="../static/images/assets/burger.jpeg" alt="burger image" />
-
-          <div>
-            <button class="delete-btn">حـــذف</button>
-            <button class="edit-btn">تعديــل</button>
-          </div>
-        </div>
-
-        <div id="2" class="meal">
-          <p>وجبة سمك</p>
-          <img src="../static/images/assets/fish.jpeg" alt="burger image" />
-
-          <div>
-            <button class="delete-btn">حـــذف</button>
-            <button class="edit-btn">تعديــل</button>
-          </div>
-        </div>
-
-        <div id="3" class="meal">
-          <p>وجبة اللحم المشوي</p>
-          <img src="../static/images/assets/meat.jpeg" alt="burger image" />
-
-          <div>
-            <button class="delete-btn">حـــذف</button>
-            <button class="edit-btn">تعديــل</button>
-          </div>
-        </div> -->
-      </section>
-
-      <section id="edit-form" data-hide="true">
+      <section id="edit-form">
         <form id="add-meal-form">
           <p class="form-header">تعديــل وجبة</p>
 
@@ -78,6 +45,7 @@
               placeholder="... أدخل وصف مناسب للوجبة"
             ></textarea>
           </div>
+
           <div class="input-container">
             <label html="price"> :السعر </label>
             <div>
@@ -102,7 +70,7 @@
           </div>
 
           <div>
-            <button id="add-meal-cancel">إلــغاء</button>
+            <button id="add-meal-cancel"><a href="/meals">إلــغاء</a></button>
             <input
               type="submit"
               name="add-meal-submit"

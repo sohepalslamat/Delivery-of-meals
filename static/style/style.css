@@ -371,13 +371,8 @@ a {
   background: #d00000;
 }
 
-#edit-form {
-  padding: 10%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.322);
+#main-edit a {
+  color: white;
 }
 
 .edit-form-hide {
