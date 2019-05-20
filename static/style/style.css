@@ -194,6 +194,10 @@ a {
   transition: opacity ease-in-out 300ms;
 }
 
+#add-meal-form #add-meal-cancel {
+  display: inline-block;
+}
+
 #request-form #submit:hover,
 #add-meal-form #add-meal-submit:hover,
 #add-meal-form #add-meal-cancel:hover {
@@ -344,7 +348,8 @@ a {
   justify-content: center;
 }
 
-#main-edit button {
+#main-edit .delete-btn,
+#main-edit .edit-btn {
   padding: 8px;
   width: 100px;
   color: white;
@@ -356,9 +361,11 @@ a {
   cursor: pointer;
   text-align: center;
   transition: opacity ease-in-out 300ms;
+  font-size: 0.7rem;
 }
 
-#main-edit button:hover {
+#main-edit .delete-btn:hover,
+#main-edit .edit-btn:hover {
   opacity: 0.9;
 }
 
@@ -371,15 +378,11 @@ a {
   background: #d00000;
 }
 
-#edit-form {
-  padding: 10%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.322);
-}
-
 .edit-form-hide {
   display: none;
+}
+
+#main-edit #add-meal-cancel {
+  padding: 6px;
+  font-size: 0.7rem;
 }

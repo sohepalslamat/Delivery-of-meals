@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
+      rel="stylesheet"
+    />
+
+    <title>عرض الوجبات</title>
+  </head>
+  <body>
+    <header id="header">
+      <p>LOGO</p>
+
+      <nav class="header-nav">
+        <a href="#">الصفحة الرئيسية</a>
+        <a href="#">صفحة الوجبات</a>
+        <a href="#">صفحة الطلبات</a>
+      </nav>
+    </header>
+
+    <main id="main-edit">
+      <section class="meals-container">
+        <!-- Template -->
+        <div id="1" class="meal">
+          <p>وجبة برجر</p>
+          <img src="../static/images/assets/burger.jpeg" alt="burger image" />
+
+          <div>
+            <a class="delete-btn" href="/admin/meals/delete">حـــذف</a>
+            <a class="edit-btn" href="/admin/meals/update/">تعديــل</a>
+          </div>
+        </div>
+
+        <div id="2" class="meal">
+          <p>وجبة سمك</p>
+          <img src="../static/images/assets/fish.jpeg" alt="burger image" />
+
+          <div>
+            <a class="delete-btn" href="/admin/meals/delete">حـــذف</a>
+            <a class="edit-btn" href="/admin/meals/update/">تعديــل</a>
+          </div>
+        </div>
+
+        <div id="3" class="meal">
+          <p>وجبة اللحم المشوي</p>
+          <img src="../static/images/assets/meat.jpeg" alt="burger image" />
+
+          <div>
+            <a class="delete-btn" href="/admin/meals/delete">حـــذف</a>
+            <a class="edit-btn" href="/admin/meals/update/">تعديــل</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer"></footer>
+  </body>
+</html>
