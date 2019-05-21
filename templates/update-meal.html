@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../static/style/style.css" />
+    <script src="{{url_for('static', filename='js/edit-meal.js')}}"></script>
+    <link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
       rel="stylesheet"
@@ -25,7 +26,7 @@
 
     <main id="main-edit">
       <section id="edit-form">
-        <form id="add-meal-form">
+        <form id="add-meal-form" action="{{url_for('update_meal',id=meal.id)}}" method="POST" enctype="multipart/form-data">
           <p class="form-header">تعديــل وجبة</p>
 
           <div class="input-container">
@@ -34,6 +35,7 @@
               type="text"
               name="mealName"
               id="mealName"
+              value="{{meal.name}}"
               placeholder="... أدخل اسم الوجبة"
             />
           </div>
@@ -44,14 +46,14 @@
               name="mealDesc"
               id="mealDesc"
               placeholder="... أدخل وصف مناسب للوجبة"
-            ></textarea>
+            >{{meal.desc}}</textarea>
           </div>
 
           <div class="input-container">
             <label html="price"> :السعر </label>
             <div>
               <span class="dollar-sign">$</span>
-              <input type="number" name="price" id="price" value="1" min="1" />
+              <input type="number" name="price" id="price" value="{{meal.price}}" min="1" />
             </div>
           </div>
 
@@ -60,7 +62,7 @@
             <label for="mealImage" class="meal-image">
               <span id="mealImageName">برجاء إضافة صورة</span>
               <span class="plus">+ </span>
-              <img src="../static/images/assets/image.png" alt="image logo" />
+              <img src="/static/images/assets/image.png" alt="image logo" />
             </label>
             <input
               type="file"
@@ -71,7 +73,7 @@
           </div>
 
           <div>
-            <a id="add-meal-cancel" href="/admin/meals">إلــغاء</a>
+            <a id="add-meal-cancel" href="{{url_for('show_meals_for_admin')}}">إلــغاء</a>
             <input
               type="submit"
               name="add-meal-submit"
@@ -84,6 +86,6 @@
     </main>
 
     <footer id="footer"></footer>
-    <script src="../static/js/edit-meal.js"></script>
+
   </body>
 </html>

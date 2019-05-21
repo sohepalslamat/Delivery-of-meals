@@ -142,7 +142,7 @@ def upload_file():
             file.filename = name_file
             name_file = secure_filename(file.filename)
             file.save(path.join(app.config['UPLOAD_FOLDER'], name_file))
-            return app.config['UPLOAD_FOLDER'] + '/' + name_file
+            return '/' + app.config['UPLOAD_FOLDER'] + '/' + name_file
 
 
 #########################################################################
@@ -162,7 +162,13 @@ def admin():
     return render_template('admin-page.html')
 
 
-@app.route('/admin/add_meal', methods=['POST', 'GET'])
+@app.route('/admin/meals')
+def show_meals_for_admin():
+    meals = o.get_all_meal()
+    return render_template('show-meals-for-admin.html', meals=meals)
+
+
+@app.route('/admin/meals/add_meal', methods=['POST', 'GET'])
 def add_meal():
     if request.method == 'POST':
         try:
@@ -170,17 +176,11 @@ def add_meal():
             photo_id = o.add_photo(url=url_photo)
             o.add_meal(name=request.form['mealName'], desc=request.form['mealDesc'],
                        price=request.form['price'], photo_id=photo_id)
-            return redirect(url_for('homepage'))
+            return redirect(url_for('show_meals_for_admin'))
         except:
             return redirect(request.url)
     elif request.method == 'GET':
         return render_template('add-meal.html')
-
-
-@app.route('/admin/meals')
-def show_meals_for_admin():
-    meals = o.get_all_meal()
-    return render_template('meals-page.html', meals=meals)
 
 
 @app.route('/admin/meals/update/<int:id>', methods=['GET', 'POST'])
