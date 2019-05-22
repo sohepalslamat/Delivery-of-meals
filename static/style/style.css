@@ -320,7 +320,7 @@ a {
   padding: 1.888rem 2.369rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2.369rem;
+  grid-gap: 2.369rem;
   background: white;
 }
 
