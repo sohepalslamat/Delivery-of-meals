@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="../static/style/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
+      rel="stylesheet"
+    />
+
+    <title>عرض الوجبات</title>
+  </head>
+  <body>
+    <header id="header">
+      <p>LOGO</p>
+
+      <nav class="header-nav">
+        <a href="#">الصفحة الرئيسية</a>
+        <a href="#">صفحة الوجبات</a>
+        <a href="#">صفحة الطلبات</a>
+      </nav>
+    </header>
+
+    <main id="main-request">
+      <form class="search-request-form">
+        <div>
+          <label for="search-request">:فرز حسب</label>
+
+          <select name="search-request" id="search-request">
+            <option value="date">التاريخ</option>
+            <option value="state">الحالة</option>
+          </select>
+        </div>
+      </form>
+
+      <p>عرض الطلبات</p>
+
+      <section class="request-table">
+        <div class="request-table-header">
+          <p>الحالة</p>
+          <p>تاريخ الطلب</p>
+          <p>العنوان</p>
+          <p>اسم صاحب الطلب</p>
+        </div>
+
+        <div>
+          <p>قيد الانتظار</p>
+          <p>10/6/2019</p>
+          <p>مصر / مصر</p>
+          <p>احمد رمزي البهوتي</p>
+        </div>
+
+        <div>
+          <p>تم</p>
+          <p>10/6/2019</p>
+          <p>مصر</p>
+          <p>احمد رمزي البهوتي</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
