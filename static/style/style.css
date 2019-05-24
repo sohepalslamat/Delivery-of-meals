@@ -523,6 +523,36 @@ a:hover {
   font-weight: 600;
 }
 
+#main-request .checkbox-status-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#main-request .checkbox-status-form input {
+  margin-top: 5px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+#main-request .btn-edit {
+  margin-left: 50%;
+  margin-top: 0.75rem;
+  padding: 8px;
+  width: 100px;
+  color: white;
+  background: #003b36;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px #01040457;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity ease-in-out 300ms;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transform: translateX(-50%);
+}
+
 #footer {
   color: white;
   background: #000;
