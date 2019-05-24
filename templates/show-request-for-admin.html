@@ -37,28 +37,38 @@
 
       <p>عرض الطلبات</p>
 
-      <section class="request-table">
-        <div class="request-table-header">
-          <p>الحالة</p>
-          <p>تاريخ الطلب</p>
-          <p>العنوان</p>
-          <p>اسم صاحب الطلب</p>
-        </div>
+      <form>
+        <section class="request-table">
+          <div class="request-table-header">
+            <p>الحالة</p>
+            <p>تاريخ الطلب</p>
+            <p>العنوان</p>
+            <p>اسم صاحب الطلب</p>
+          </div>
 
-        <div>
-          <p>قيد الانتظار</p>
-          <p>10/6/2019</p>
-          <p>مصر / مصر</p>
-          <p>احمد رمزي البهوتي</p>
-        </div>
+          <div>
+            <div class="checkbox-status-form">
+              <p>قيد الانتظار</p>
+              <input type="checkbox" name="checkbox-status-form" />
+            </div>
+            <p>10/6/2019</p>
+            <p>مصر / مصر</p>
+            <p>احمد رمزي البهوتي</p>
+          </div>
 
-        <div>
-          <p>تم</p>
-          <p>10/6/2019</p>
-          <p>مصر</p>
-          <p>احمد رمزي البهوتي</p>
-        </div>
-      </section>
+          <div>
+            <div class="checkbox-status-form">
+              <p>تم</p>
+              <input type="checkbox" name="checkbox-status-form" checked />
+            </div>
+            <p>10/6/2019</p>
+            <p>مصر</p>
+            <p>احمد رمزي البهوتي</p>
+          </div>
+        </section>
+
+        <input type="submit" value="حفظ التعديلات" class="btn-edit" />
+      </form>
     </main>
   </body>
 </html>

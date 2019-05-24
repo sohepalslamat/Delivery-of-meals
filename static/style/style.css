@@ -523,6 +523,122 @@ a:hover {
   font-weight: 600;
 }
 
+#main-request .checkbox-status-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#main-request .checkbox-status-form input {
+  margin-top: 5px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+#main-request .btn-edit {
+  margin-left: 50%;
+  margin-top: 0.75rem;
+  padding: 8px;
+  width: 100px;
+  color: white;
+  background: #003b36;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px #01040457;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity ease-in-out 300ms;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transform: translateX(-50%);
+}
+
+/* Main Meal */
+#main-meals {
+  padding: 4.209rem 10%;
+  min-height: calc(100vh - 2.666rem - 30px);
+  background: #f4f0f6;
+}
+
+#main-meals .meals-container {
+  margin-bottom: 1.777rem;
+  padding: 1.888rem 2.369rem;
+  background: white;
+  box-shadow: 0 0 10px #01040417;
+}
+
+#main-meals .meals-container > p {
+  margin-bottom: 2.369rem;
+  width: 100%;
+  height: 50px;
+  color: #e57100;
+  border-bottom: #e57100 solid 1.5px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.333rem;
+  font-weight: 600;
+}
+
+#main-meals .meal {
+  margin-bottom: 1.777rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-gap: 1.777rem;
+  padding: 1.777rem;
+  text-align: center;
+  background: #f4f0f6ee;
+}
+
+#main-meals .meal:nth-child(2n) {
+  grid-template-columns: 1fr 400px;
+}
+
+#main-meals .meal:nth-child(2n) img {
+  grid-column: 2;
+}
+
+#main-meals .meal:nth-child(2n) > div {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#main-meals .meal > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#main-meals .meal:nth-child(2n) {
+  padding: 1.777rem;
+  background: #f4f0f696;
+}
+
+#main-meals .meal a {
+  width: max-content;
+  padding: 8px 24px;
+  color: white;
+  background: #e7d401;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px #01151323;
+}
+
+#main-meals .meal img {
+  width: 100%;
+  max-width: 100%;
+  height: 250px;
+  border-radius: 4px;
+}
+
+#main-meals .meal-header {
+  margin-bottom: 1rem;
+  color: #003b36;
+  text-align: center;
+  font-weight: 700;
+}
+
 #footer {
   color: white;
   background: #000;
