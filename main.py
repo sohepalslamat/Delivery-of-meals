@@ -87,8 +87,8 @@ class operations:
     def get_request_by_id(self, id):
         return Requests.query.get(id)
 
-    def get_all_requests(self):
-        x = Requests.query.order_by(Requests.date_time.desc()).all()
+    def get_all_requests_by_date(self):
+        x = Requests.query.order_by(Requests.request_date.desc()).all()
         return x
 
     def request_ok(self, id):
@@ -159,7 +159,7 @@ def homepage():
 
 @app.route('/admin')
 def admin():
-    return render_template('admin-page.html')
+    return render_template('admin-dashboard.html')
 
 
 @app.route('/admin/meals')
@@ -214,6 +214,25 @@ def delete_meal(id):
         remove(photo_url)
     o.delete_meal(id)
     return redirect(url_for('show_meals_for_admin'))
+
+
+@app.route('/admin/requests', methods=['GET', 'POST'])
+def requests():
+    if request.method == 'POST':
+        '''
+        requests = o.get_all_requests_by_date()
+        for i in requests:
+            x = request.form['checkbox-status-form-'+str(i.id)]
+            print(x)
+            if x == 'True':
+                o.request_ok(i.id)
+        '''
+
+        return redirect(url_for('requests'))
+
+    elif request.method == 'GET':
+        requests = o.get_all_requests_by_date()
+        return render_template('show-request-for-admin.html', requests=requests)
 
 
 #############ُ End Admin ###############

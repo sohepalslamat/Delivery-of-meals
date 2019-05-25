@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
       rel="stylesheet"
     />
-    <link href="../static/style/style.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
 
     <title>أضف وجبة</title>
   </head>
@@ -31,7 +31,7 @@
           <div>
             <div>
               <img
-                src="../static/images/assets/pexels-photo-988865.jpeg"
+                src="/static/images/assets/pexels-photo-988865.jpeg"
                 alt="صورة لصفحة عرض الوجبات"
               />
 
@@ -40,7 +40,7 @@
 
             <div>
               <img
-                src="../static/images/assets/main.jpg"
+                src="/static/images/assets/main.jpg"
                 alt="صورة لصفحة الرئيسية"
               />
 
@@ -49,7 +49,7 @@
 
             <div>
               <img
-                src="../static/images/assets/add-meal.jpeg"
+                src="/static/images/assets/add-meal.jpeg"
                 alt="صورة لصفحة اضافة الوجبات"
               />
 
@@ -58,23 +58,23 @@
 
             <div>
               <img
-                src="../static/images/assets/pexels-photo-1194431.jpeg"
+                src="/static/images/assets/pexels-photo-1194431.jpeg"
                 alt="صورة لصفحة عرض الوجبات"
               />
 
-              <a href="/admin/requests">عرض الطلبات </a>
+              <a href="/admin/requests">ادارة الطلبات </a>
             </div>
           </div>
         </section>
 
         <footer id="footer">
-          <p>www.delviery-meals.com</p>
+          <p>www.delivery-meals.com</p>
         </footer>
       </section>
 
       <aside class="dashboard-aside">
         <div class="dashboard-aside-profile">
-          <img src="../static/images/assets/admin.jpg" alt="admin image" />
+          <img src="/static/images/assets/admin.jpg" alt="admin image" />
 
           <div>
             <p>أحمد رمزي البهوتي</p>
