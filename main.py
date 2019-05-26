@@ -87,8 +87,15 @@ class operations:
     def get_request_by_id(self, id):
         return Requests.query.get(id)
 
-    def get_all_requests_by_date(self):
-        x = Requests.query.order_by(Requests.request_date.desc()).all()
+    def get_all_requests_by_date(self, filter_by=None):
+        if filter_by == 'ok':
+            x = Requests.query.filter_by(is_active=True).order_by(Requests.request_date.desc()).all()
+
+        elif filter_by == 'waiting':
+            x = Requests.query.filter_by(is_active=False).order_by(Requests.request_date.desc()).all()
+
+        else:
+            x = Requests.query.order_by(Requests.request_date.desc()).all()
         return x
 
     def request_ok(self, id):
@@ -219,20 +226,23 @@ def delete_meal(id):
 @app.route('/admin/requests', methods=['GET', 'POST'])
 def requests():
     if request.method == 'POST':
-        '''
-        requests = o.get_all_requests_by_date()
-        for i in requests:
-            x = request.form['checkbox-status-form-'+str(i.id)]
-            print(x)
-            if x == 'True':
-                o.request_ok(i.id)
-        '''
+        if request.form['search-request'] == 'ok':
+            requests = o.get_all_requests_by_date('ok')
+            value = 'ok'
+            return render_template('show-request-for-admin.html', requests=requests, value=value)
 
-        return redirect(url_for('requests'))
-
+        elif request.form['search-request'] == 'waiting':
+            requests = o.get_all_requests_by_date('waiting')
+            value = 'waiting'
+            return render_template('show-request-for-admin.html', requests=requests, value=value)
+        else:
+            requests = o.get_all_requests_by_date()
+            value = 'date'
+            return render_template('show-request-for-admin.html', requests=requests, value=value)
     elif request.method == 'GET':
         requests = o.get_all_requests_by_date()
-        return render_template('show-request-for-admin.html', requests=requests)
+        value = 'date'
+        return render_template('show-request-for-admin.html', requests=requests, value=value)
 
 
 #############ُ End Admin ###############
@@ -263,6 +273,8 @@ def request_meal(id):
         meal = o.get_meal_by_id(id)
         return render_template('request-meal.html', meal=meal)
 
+
+################# END USER #####################
 
 #############################################################################
 app.run()

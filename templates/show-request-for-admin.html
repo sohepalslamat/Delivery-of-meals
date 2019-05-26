@@ -13,7 +13,7 @@
 
     <title>عرض الوجبات</title>
   </head>
-  <body>
+  <body onload="document.getElementById('search-request').value = '{{value}}'">
     <header id="header">
       <p>LOGO</p>
 
@@ -25,13 +25,14 @@
     </header>
 
     <main id="main-request">
-      <form class="search-request-form">
+      <form class="search-request-form"  action="{{url_for('requests')}}" method="POST">
         <div>
-          <label for="search-request">:فرز حسب</label>
+          <label for="search-request">:عرض</label>
 
-          <select name="search-request" id="search-request">
-            <option value="date">التاريخ</option>
-            <option value="state">الحالة</option>
+          <select name="search-request" id="search-request" onchange="this.form.submit();">
+            <option value="date">الكل حسب التاريخ</option>
+            <option value="ok">الطلبات التي تمت</option>
+            <option value="waiting">الطلبات قيد الانتظار</option>
           </select>
         </div>
       </form>
