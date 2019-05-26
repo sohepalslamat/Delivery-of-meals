@@ -268,10 +268,15 @@ def request_meal(id):
     if request.method == 'POST':
         o.add_request(name_user=request.form['name'], address=request.form['address'],
                       amount=request.form['amount'], meal=id)
-        return redirect(url_for('show_meals_for_user'))
+        return redirect(url_for('request_done',id=id))
     elif request.method == 'GET':
         meal = o.get_meal_by_id(id)
         return render_template('request-meal.html', meal=meal)
+
+@app.route('/meals/request/<int:id>/done')
+def request_done(id):
+    the_request = o.get_request_by_id(id)
+    return render_template('request-done.html', request=the_request)
 
 
 ################# END USER #####################

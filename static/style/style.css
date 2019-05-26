@@ -305,11 +305,14 @@ a:hover {
 #add-meal-form #add-meal-submit {
   margin-left: 16px;
   width: 100px;
+  padding: 11px;
+
 }
 
 #add-meal-form #add-meal-cancel {
   margin-right: 16px;
   width: 100px;
+  font-size: 0.7rem;
   background: #d00000;
 }
 
@@ -693,7 +696,7 @@ a:hover {
 /* Done */
 #done {
   padding: 1.333rem 10%;
-  height: calc(100vh - 61.05px - 1.333rem);
+  height: calc(108vh - 61.05px - 1.333rem);
   background-color: #f4f0f6;
 }
 
@@ -711,6 +714,7 @@ a:hover {
 }
 
 #done .done-header {
+  margin-top: 1rem;
   margin-bottom: 1.777rem;
   color: #003b36;
   text-align: center;
@@ -744,6 +748,7 @@ a:hover {
 
 #done .done-time {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   text-align: center;
   font-weight: 700;
 }
