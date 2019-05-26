@@ -16,6 +16,7 @@ a {
 
 a:hover {
   opacity: 0.9;
+  transition: opacity ease-in-out 300ms;
 }
 
 /* HEADER */
@@ -31,10 +32,9 @@ a:hover {
   flex-direction: row-reverse;
 }
 
-#header .header-nav > a {
+#header .header-nav a {
   margin-right: 1.777rem;
   color: #012622;
-  transition: opacity ease-in-out 300ms;
 }
 
 #header .header-nav a:first-of-type {
@@ -116,7 +116,7 @@ a:hover {
 #meal-form-container > div {
   height: 600px;
   display: grid;
-  grid-template-columns: 400px 400px;
+  grid-template-columns: 400px 5303.3px;
   background: white;
   border-radius: 4px;
   box-shadow: 0 1px 3px #01040436;
@@ -306,7 +306,6 @@ a:hover {
   margin-left: 16px;
   width: 100px;
   padding: 11px;
-
 }
 
 #add-meal-form #add-meal-cancel {

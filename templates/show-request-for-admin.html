@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
+    <link
+      href="{{ url_for('static', filename='style/style.css') }}"
+      rel="stylesheet"
+    />
     <script src="{{url_for('static', filename='js/show-request-for-admin.js')}}"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
@@ -13,23 +16,33 @@
 
     <title>عرض الوجبات</title>
   </head>
-  <body onload="document.getElementById('search-request').value = '{{value}}'">
+  <body
+    onload="document.getElementById('search-request').value = '{{ value }}'"
+  >
     <header id="header">
       <p>LOGO</p>
 
       <nav class="header-nav">
-        <a href="#">الصفحة الرئيسية</a>
+        <a href="/">الصفحة الرئيسية</a>
         <a href="#">صفحة الوجبات</a>
-        <a href="#">صفحة الطلبات</a>
+        <a href="/admin/requests">صفحة الطلبات</a>
       </nav>
     </header>
 
     <main id="main-request">
-      <form class="search-request-form"  action="{{url_for('requests')}}" method="POST">
+      <form
+        class="search-request-form"
+        action="{{ url_for('requests') }}"
+        method="POST"
+      >
         <div>
           <label for="search-request">:عرض</label>
 
-          <select name="search-request" id="search-request" onchange="this.form.submit();">
+          <select
+            name="search-request"
+            id="search-request"
+            onchange="this.form.submit();"
+          >
             <option value="date">الكل حسب التاريخ</option>
             <option value="ok">الطلبات التي تمت</option>
             <option value="waiting">الطلبات قيد الانتظار</option>
@@ -39,7 +52,7 @@
 
       <p>عرض الطلبات</p>
 
-      <form action="{{url_for('requests')}}" method="POST">
+      <form action="{{ url_for('requests') }}" method="POST">
         <section class="request-table">
           <div class="request-table-header">
             <p>الحالة</p>
@@ -53,23 +66,34 @@
           <div>
             <div class="checkbox-status-form">
               {% if request.is_active == True %}
-              <p id="{{request.id}}">تم</p>
-              <input type="checkbox" id="{{request.id}}g" onchange="on_active('{{request.id}}')"
-                     value="False"  name="checkbox-status-form-{{request.id}}" checked />
+              <p id="{{ request.id }}">تم</p>
+              <input
+                type="checkbox"
+                id="{{ request.id }}g"
+                onchange="on_active('{{ request.id }}')"
+                value="False"
+                name="checkbox-status-form-{{ request.id }}"
+                checked
+              />
               {% else %}
-              <p id="{{request.id}}">قيد الانتظار</p>
-              <input type="checkbox" id="{{request.id}}g" onchange="on_active('{{request.id}}')"
-                     value="False" name="checkbox-status-form-{{request.id}}" />
+              <p id="{{ request.id }}">قيد الانتظار</p>
+              <input
+                type="checkbox"
+                id="{{ request.id }}g"
+                onchange="on_active('{{ request.id }}')"
+                value="False"
+                name="checkbox-status-form-{{ request.id }}"
+              />
               {% endif %}
-
             </div>
-            <p>{{request.request_date.strftime("%A, %d %B %Y %I:%M:%S %p")}}</p>
-            <p>{{request.amount}}</p>
-            <p>{{request.address}}</p>
-            <p>{{request.name_user}}</p>
+            <p>
+              {{ request.request_date.strftime("%A, %d %B %Y %I:%M:%S %p") }}
+            </p>
+            <p>{{ request.amount }}</p>
+            <p>{{ request.address }}</p>
+            <p>{{ request.name_user }}</p>
           </div>
           {% endfor %}
-
         </section>
 
         <input type="submit" value="حفظ التعديلات" class="btn-edit" />

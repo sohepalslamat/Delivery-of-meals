@@ -14,3 +14,6 @@ mealImage.addEventListener("change", e => {
   mealImageName.innerText =
     e.target.value.split("\\").reverse()[0] || "برجاء إضافة صورة";
 });
+/* ======================================================= */
+
+// Validate Form
