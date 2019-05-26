@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 ####################### SETTING ########################
 
 UPLOAD_FOLDER = 'static/images/meals'
+default_photo_url ='/static/images/assets/1.png'
 ALLOWED_EXTENSIONS = (['pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -141,7 +142,7 @@ def upload_file():
         # submit a empty part without filename
         name_file = file.filename
         if name_file == '':
-            return ''
+            return default_photo_url
         if file.filename in listdir(UPLOAD_FOLDER):
             z = randrange(10000)
             name_file = str(z) + file.filename
@@ -195,7 +196,7 @@ def update_meal(id):
     if request.method == 'POST':
         try:
             url_photo = upload_file()
-            if url_photo != '':
+            if url_photo != default_photo_url:
                 meal = o.get_meal_by_id(id)
                 photo_id = meal.photo.id
                 last_url = o.get_url_photo_by_id(photo_id)
