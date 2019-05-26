@@ -16,31 +16,18 @@
     <div id="request-form-container">
       <div>
         <div class="request-form-img">
-          <img
-            src="../static/images/assets/pexels-photo-1194431.jpeg"
-            alt="form image"
-          />
+          <img src="/static/images/assets/pexels-photo-1194431.jpeg" alt="form image"/>
           <div class="overlay"></div>
         </div>
 
-        <form id="request-form">
+        <form id="request-form" action="{{url_for('request_meal',id=meal.id)}}" method="POST">
           <div class="input-container">
             <label for="name">:الاسم كامل </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="... أدخل اسمك ثلاثي"
-            />
+            <input  type="text" name="name" id="name" placeholder="... أدخل اسمك ثلاثي"/>
           </div>
           <div class="input-container">
             <label for="address"> :العنوان </label>
-            <input
-              type="text"
-              name="address"
-              id="address"
-              placeholder="... أدخل العنوان بالتفصيل"
-            />
+            <input type="text" name="address" id="address" placeholder="... أدخل العنوان بالتفصيل"/>
           </div>
           <div class="input-container">
             <label for="amount"> :الكمية </label>
@@ -52,6 +39,5 @@
       </div>
     </div>
 
-    <script src="../static/js/index.js"></script>
   </body>
 </html>

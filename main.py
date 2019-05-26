@@ -80,8 +80,8 @@ class operations:
         db.session.commit()
 
     # Requests
-    def add_request(self, name_user, address, meal):
-        db.session.add(Requests(name_user=name_user, address=address, meal_id=meal))
+    def add_request(self, name_user, address, amount, meal):
+        db.session.add(Requests(name_user=name_user, address=address, amount=amount, meal_id=meal))
         db.session.commit()
 
     def get_request_by_id(self, id):
@@ -236,6 +236,32 @@ def requests():
 
 
 #############ُ End Admin ###############
+
+
+################# USER ##############
+
+
+@app.route('/meals')
+def show_meals_for_user():
+    meals = o.get_all_meal()
+    return render_template('show-meals-for-users.html', meals=meals)
+
+
+@app.route('/meals/<int:id>/detail')
+def meal_details(id):
+    meal = o.get_meal_by_id(id)
+    return render_template('meal-details.html', meal=meal)
+
+
+@app.route('/meals/request/<int:id>', methods=["GET", "POST"])
+def request_meal(id):
+    if request.method == 'POST':
+        o.add_request(name_user=request.form['name'], address=request.form['address'],
+                      amount=request.form['amount'], meal=id)
+        return redirect(url_for('show_meals_for_user'))
+    elif request.method == 'GET':
+        meal = o.get_meal_by_id(id)
+        return render_template('request-meal.html', meal=meal)
 
 
 #############################################################################
