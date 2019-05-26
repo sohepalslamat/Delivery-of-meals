@@ -22,6 +22,7 @@ a:hover {
   padding: 1.333rem 10%;
   display: flex;
   justify-content: space-between;
+  background-color: white;
 }
 
 #header .header-nav {
@@ -511,7 +512,7 @@ a:hover {
 #main-request .request-table > div {
   padding: 10px 20px;
   display: grid;
-  grid-template-columns: 100px 100px 100px 200px 300px ;
+  grid-template-columns: 100px 100px 100px 200px 300px;
   grid-column-gap: 1.777rem;
   text-align: right;
   background: white;
@@ -637,6 +638,55 @@ a:hover {
   color: #003b36;
   text-align: center;
   font-weight: 700;
+}
+
+/* Meal Details */
+#meal-details {
+  padding: 1.333rem 10%;
+  background-color: #f4f0f6;
+}
+
+#meal-details .meal-details-meal {
+  padding: 1.777rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  border-top: 2px solid #d16700;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 2px #01040433;
+}
+
+#meal-details .meal-details-meal img {
+  width: 350px;
+  border-radius: 4px;
+}
+
+#meal-details .meal-details-meal .meal-header {
+  margin-top: 1.777rem;
+  margin-bottom: 1rem;
+  font-size: 1.333rem;
+  font-weight: bold;
+  color: #003b36;
+}
+
+#meal-details .meal-details-meal a {
+  display: block;
+  margin-top: 1rem;
+  margin-left: 50%;
+  padding: 8px;
+  width: 100px;
+  color: white;
+  background-color: #d16700;
+  border: none;
+  border-radius: 3px;
+  font-weight: 600;
+  box-shadow: 0 2px 2px #01040457;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity ease-in-out 300ms;
+  transform: translateX(-50%);
 }
 
 #footer {
