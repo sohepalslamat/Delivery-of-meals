@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,8 @@
       href="{{ url_for('static', filename='style/style.css') }}"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="../static/style/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
       rel="stylesheet"
@@ -28,7 +30,7 @@
     <main id="main-meals">
       <section class="meals-container">
         <p>تصفح الوجبات</p>
-        {% for meal in meals %}
+        <!--       {% for meal in meals %}
         <div class="meal">
           <img src="{{ meal.photo.url }}" />
           <div>
@@ -42,7 +44,25 @@
             </div>
           </div>
         </div>
-        {% endfor %}
+        {% endfor %} -->
+
+        <div>
+          {% for meal in meals %}
+          <div class="meal">
+            <p class="meal-header">وجبة البرجر</p>
+
+            <div>
+              <a href="{{url_for('meal_details',id = meal.id)}}">
+                <img src="{{ meal.photo.url }}" alt="meal image" />
+              </a>
+
+              <a class="cart" href="{{url_for('request_meal',id = meal.id)}}">
+                <img src="../static/images/assets/cart.png" alt="cart image" />
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
       </section>
     </main>
   </body>
