@@ -4,7 +4,7 @@ from os import path, listdir, remove
 from flask import Flask, render_template, request, url_for, redirect
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
-import os
+
 
 
 ####################### SETTING ########################
@@ -90,9 +90,11 @@ class operations:
 
     # Requests
     def add_request(self, name_user, address, amount, meal):
-        db.session.add(Requests(name_user=name_user,
-                                address=address, amount=amount, meal_id=meal))
+        the_request = Requests(name_user=name_user,
+                                address=address, amount=amount, meal_id=meal)
+        db.session.add(the_request)
         db.session.commit()
+        return the_request.id
 
     def get_request_by_id(self, id):
         return Requests.query.get(id)
@@ -278,9 +280,9 @@ def meal_details(id):
 @app.route('/meals/request/<int:id>', methods=["GET", "POST"])
 def request_meal(id):
     if request.method == 'POST':
-        o.add_request(name_user=request.form['name'], address=request.form['address'],
+        request_id = o.add_request(name_user=request.form['name'], address=request.form['address'],
                       amount=request.form['amount'], meal=id)
-        return redirect(url_for('request_done', id=id))
+        return redirect(url_for('request_done', id=request_id))
     elif request.method == 'GET':
         meal = o.get_meal_by_id(id)
         return render_template('request-meal.html', meal=meal)
@@ -295,4 +297,7 @@ def request_done(id):
 ################# END USER #####################
 
 #############################################################################
-app.run()
+if __name__ == '__main__':
+    app.run()
+
+
