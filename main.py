@@ -4,23 +4,29 @@ from os import path, listdir, remove
 from flask import Flask, render_template, request, url_for, redirect
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
+import os
+
 
 ####################### SETTING ########################
 
 UPLOAD_FOLDER = 'static/images/meals'
-default_photo_url ='/static/images/assets/1.png'
+default_photo_url = '/static/images/assets/1.png'
 ALLOWED_EXTENSIONS = (['pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///d_m.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 db = SQLAlchemy(app)
 
 
 ###########################################################################
 
 ############################## MODELS #####################################
+
+
 class Meals(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(50), nullable=False)
@@ -36,8 +42,10 @@ class Requests(db.Model):
     address = db.Column(db.Text, nullable=False)
     is_active = db.Column(db.Boolean, default=False)
     amount = db.Column(db.Integer, default=1)
-    request_date = db.Column(db.DateTime(timezone=True), default=datetime.now())
-    delivery_date = db.Column(db.DateTime(timezone=True), onupdate=datetime.now())
+    request_date = db.Column(db.DateTime(
+        timezone=True), default=datetime.now())
+    delivery_date = db.Column(db.DateTime(
+        timezone=True), onupdate=datetime.now())
     meal_id = db.Column(db.Integer, db.ForeignKey('meals.id'))
 
 
@@ -82,7 +90,8 @@ class operations:
 
     # Requests
     def add_request(self, name_user, address, amount, meal):
-        db.session.add(Requests(name_user=name_user, address=address, amount=amount, meal_id=meal))
+        db.session.add(Requests(name_user=name_user,
+                                address=address, amount=amount, meal_id=meal))
         db.session.commit()
 
     def get_request_by_id(self, id):
@@ -90,10 +99,12 @@ class operations:
 
     def get_all_requests_by_date(self, filter_by=None):
         if filter_by == 'ok':
-            x = Requests.query.filter_by(is_active=True).order_by(Requests.request_date.desc()).all()
+            x = Requests.query.filter_by(is_active=True).order_by(
+                Requests.request_date.desc()).all()
 
         elif filter_by == 'waiting':
-            x = Requests.query.filter_by(is_active=False).order_by(Requests.request_date.desc()).all()
+            x = Requests.query.filter_by(is_active=False).order_by(
+                Requests.request_date.desc()).all()
 
         else:
             x = Requests.query.order_by(Requests.request_date.desc()).all()
@@ -269,10 +280,11 @@ def request_meal(id):
     if request.method == 'POST':
         o.add_request(name_user=request.form['name'], address=request.form['address'],
                       amount=request.form['amount'], meal=id)
-        return redirect(url_for('request_done',id=id))
+        return redirect(url_for('request_done', id=id))
     elif request.method == 'GET':
         meal = o.get_meal_by_id(id)
         return render_template('request-meal.html', meal=meal)
+
 
 @app.route('/meals/request/<int:id>/done')
 def request_done(id):
