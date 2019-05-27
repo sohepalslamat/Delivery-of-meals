@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="{{url_for('static', filename='js/index.js')}}"></script>
-    <link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
+    <link
+      href="{{ url_for('static', filename='style/style.css') }}"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
       rel="stylesheet"
@@ -21,15 +23,13 @@
 
           <nav class="header-nav">
             <div>
-              <Link to="#">تسجيل دخول</Link>
+              <a class="link-auth" href="#">تسجيل دخول</a>
               <span> | </span>
-              <Link to="#">مستخدم جديد</Link>
-              <span>   </span>
-              <Link to="#">الاستفسارات</Link>
-            <span>   </span>
-            <Link to="#">اتصل بنا</Link>
+              <a class="link-auth" href="#">مستخدم جديد</a>
+              <a href="/meals">صفحة الوجبات</a>
+              <a href="#">الاستفسارات</a>
+              <a href="#">اتصل بنا</a>
             </div>
-
           </nav>
         </header>
 
@@ -37,7 +37,9 @@
           <h1>خدمة توصيل الوجبات</h1>
           <p class="slogan">أسرع خدمة توصيل وجبات في العالم العربي</p>
 
-          <a href="{{url_for('show_meals_for_user')}}" class="order">اطلــــــب الآن</a>
+          <a href="{{ url_for('show_meals_for_user') }}" class="order"
+            >اطلــــــب الآن</a
+          >
         </section>
       </div>
     </div>

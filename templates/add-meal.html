@@ -8,83 +8,109 @@
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
       rel="stylesheet"
     />
-    <script src="{{url_for('static', filename='js/add-meal.js')}}"></script>
-    <link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
+
+    <link
+      href="{{ url_for('static', filename='style/style.css') }}"
+      rel="stylesheet"
+    />
 
     <title>أضف وجبة</title>
   </head>
   <body>
-    <header id="header">
-      <p>LOGO</p>
+    <div id="add-meal">
+      <header id="header">
+        <p>LOGO</p>
 
-      <nav class="header-nav">
-        <a href="#">الصفحة الرئيسية</a>
-        <a href="#">صفحة الوجبات</a>
-        <a href="#">صفحة الطلبات</a>
-      </nav>
-    </header>
+        <nav class="header-nav">
+          <a href="/">الصفحة الرئيسية</a>
+          <a href="/meals">صفحة الوجبات</a>
+        </nav>
+      </header>
 
-    <div id="meal-form-container">
-      <div>
-        <div class="meal-form-img">
-          <img src="/static/images/assets/add-meal-1.jpg" alt="form image" />
-          <div class="overlay"></div>
-        </div>
-        <form id="add-meal-form" action="{{url_for('add_meal')}}" method="POST" enctype="multipart/form-data">
-          <p class="form-header">إضافة وجبة جديدة</p>
-
-          <div class="input-container">
-            <label html="mealName"><sub style="color:red;"> * </sub>:اسم الوجبة </label>
-            <input
-              type="text"
-              name="mealName"
-              id="mealName"
-              placeholder="... أدخل اسم الوجبة"
-            />
+      <main class="main-container">
+        <div>
+          <div class="main-form-image">
+            <img src="/static/images/assets/add-meal-1.jpg" alt="form image" />
+            <div class="main-form-image-overlay"></div>
           </div>
-          <div class="input-container">
-            <label html="mealDesc"> :وصف الوجبة </label>
-            <textarea
-              name="mealDesc"
-              id="mealDesc"
-              placeholder="... أدخل وصف مناسب للوجبة"
-            ></textarea>
-          </div>
-          <div class="input-container">
-            <label html="price"> :السعر </label>
-            <div>
-              <span class="dollar-sign">$</span>
-              <input type="number" name="price" id="price" value="1" min="1" />
+
+          <form
+            id="add-meal-form"
+            class="main-form"
+            action="{{ url_for('add_meal') }}"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <p class="form-header">إضافة وجبة جديدة</p>
+
+            <div class="input-container">
+              <label html="mealName"
+                ><sub class="required">*</sub>:اسم الوجبة
+              </label>
+              <input
+                type="text"
+                name="mealName"
+                id="mealName"
+                placeholder="... أدخل اسم الوجبة"
+              />
             </div>
-          </div>
+            <div class="input-container">
+              <label html="mealDesc">
+                <sub class="required">*</sub>:وصف الوجبة
+              </label>
+              <textarea
+                name="mealDesc"
+                id="mealDesc"
+                placeholder="... أدخل وصف مناسب للوجبة"
+              ></textarea>
+            </div>
+            <div class="input-container">
+              <label html="price"><sub class="required">*</sub> :السعر </label>
+              <div>
+                <span class="dollar-sign">$</span>
+                <input
+                  type="number"
+                  name="price"
+                  id="price"
+                  value="1"
+                  min="1"
+                />
+              </div>
+            </div>
 
-          <div class="input-container input-container-image">
-            <label for="mealImage">:صورة للوجبة </label>
-            <label for="mealImage" class="meal-image">
-              <span id="mealImageName">برجاء إضافة صورة</span>
-              <span class="plus">+ </span>
-              <img src="/static/images/assets/image.png" alt="image logo" />
-            </label>
-            <input
-              type="file"
-              name="mealImage"
-              id="mealImage"
-              placeholder="... أدخل اسم الوجبة"
-            />
-          </div>
+            <div class="input-container input-container-image">
+              <label for="mealImage">:صورة للوجبة </label>
+              <label for="mealImage" class="meal-image">
+                <span id="mealImageName">برجاء إضافة صورة</span>
+                <span id="meal-image-plus" class="plus">+ </span>
+                <img src="/static/images/assets/image.png" alt="image logo" />
+              </label>
+              <input
+                type="file"
+                name="mealImage"
+                id="mealImage"
+                placeholder="... أدخل اسم الوجبة"
+              />
+            </div>
 
-          <div>
-            <a id="add-meal-cancel" href="{{url_for('show_meals_for_admin')}}">إلــغاء</a>
-            <input
-              type="submit"
-              name="add-meal-submit"
-              id="add-meal-submit"
-              value="إضـــافة"
-            />
-          </div>
-        </form>
-      </div>
+            <div>
+              <a
+                class="add-meal-cancel form-btn"
+                href="{{ url_for('show_meals_for_admin') }}"
+                >إلــغاء</a
+              >
+              <input
+                type="submit"
+                name="add-meal-submit"
+                id="add-meal-submit"
+                class="add-meal-submit form-btn"
+                value="إضـــافة"
+              />
+            </div>
+          </form>
+        </div>
+      </main>
     </div>
-
+    <script src="{{url_for('static', filename='js/add-meal.js')}}"></script>
   </body>
 </html>

@@ -8,36 +8,93 @@
       href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic"
       rel="stylesheet"
     />
-    <script src="{{url_for('static', filename='js/index.js')}}"></script>
-    <link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
+    <link
+      href="{{ url_for('static', filename='style/style.css') }}"
+      rel="stylesheet"
+    />
     <title>اطلب الآن</title>
   </head>
+
   <body>
-    <div id="request-form-container">
-      <div>
-        <div class="request-form-img">
-          <img src="/static/images/assets/pexels-photo-1194431.jpeg" alt="form image"/>
-          <div class="overlay"></div>
+    <div id="request-meal">
+      <header id="header">
+        <p>LOGO</p>
+
+        <nav class="header-nav">
+          <a href="/">الصفحة الرئيسية</a>
+          <a href="/meals">صفحة الوجبات</a>
+        </nav>
+      </header>
+
+      <main class="main-container">
+        <div>
+          <div class="main-form-image">
+            <img
+              src="/static/images/assets/pexels-photo-1194431.jpeg"
+              alt="form image"
+            />
+            <div class="main-form-image-overlay"></div>
+          </div>
+
+          <form
+            id="request-form"
+            class="main-form"
+            action="{{url_for('request_meal',id=meal.id)}}"
+            method="POST"
+          >
+            <p class="form-header">طلب وجبة</p>
+
+            <div class="input-container">
+              <p class="request-meal-name">ضع اسم الوجبة هنا</p>
+            </div>
+
+            <div class="input-container">
+              <label for="name"
+                ><sub class="required">*</sub>:الاسم كامل
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="... أدخل اسمك ثلاثي"
+              />
+            </div>
+
+            <div class="input-container">
+              <label for="address">
+                <sub class="required">*</sub>:العنوان
+              </label>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                placeholder="... أدخل العنوان بالتفصيل"
+              />
+            </div>
+
+            <div class="input-container">
+              <label for="amount"> :الكمية </label>
+              <input
+                type="number"
+                name="amount"
+                id="amount"
+                min="1"
+                value="1"
+              />
+            </div>
+
+            <input
+              type="submit"
+              name="submit"
+              id="submit"
+              class="request-meal-submit form-btn"
+              value="اطـــلـــب"
+            />
+          </form>
         </div>
-
-        <form id="request-form" action="{{url_for('request_meal',id=meal.id)}}" method="POST">
-          <div class="input-container">
-            <label for="name">:الاسم كامل </label>
-            <input  type="text" name="name" id="name" placeholder="... أدخل اسمك ثلاثي"/>
-          </div>
-          <div class="input-container">
-            <label for="address"> :العنوان </label>
-            <input type="text" name="address" id="address" placeholder="... أدخل العنوان بالتفصيل"/>
-          </div>
-          <div class="input-container">
-            <label for="amount"> :الكمية </label>
-            <input type="number" name="amount" id="amount" min="1" value="1" />
-          </div>
-
-          <input type="submit" name="submit" id="submit" value="اطـــلـــب" />
-        </form>
-      </div>
+      </main>
     </div>
 
+    <script src="{{url_for('static', filename='js/request-meal.js')}}"></script>
   </body>
 </html>
