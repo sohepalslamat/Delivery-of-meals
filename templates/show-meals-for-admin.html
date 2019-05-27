@@ -21,6 +21,7 @@
 
       <nav class="header-nav">
         <a href="/">الصفحة الرئيسية</a>
+        <a href="/admin">صفحة الادارة</a>
         <a class="header-active" href="/admin/meals">صفحة الوجبات</a>
         <a href="/admin/requests">صفحة الطلبات</a>
       </nav>
@@ -50,11 +51,13 @@
           </div>
         </div>
         {% endfor %}
-        <div id="add-meal-image">
+        <div class="meal">
+          <p>اضافة وجبة</p>
           <a href="/admin/meals/add_meal"
-            ><img src="/static/images/assets/add1.png" />
-            <p>إضافة وجبة</p>
-          </a>
+            ><img
+              src="/static/images/assets/add1.png"
+              style="height: 180px; padding: 1px 50px;"
+          /></a>
         </div>
       </section>
     </main>

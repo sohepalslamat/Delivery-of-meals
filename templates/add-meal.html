@@ -23,7 +23,9 @@
 
         <nav class="header-nav">
           <a href="/">الصفحة الرئيسية</a>
-          <a href="/meals">صفحة الوجبات</a>
+          <a href="/admin">صفحة الادارة</a>
+          <a class="header-active" href="/admin/meals">صفحة الوجبات</a>
+          <a href="/admin/requests">صفحة الطلبات</a>
         </nav>
       </header>
 
@@ -33,7 +35,6 @@
             <img src="/static/images/assets/add-meal-1.jpg" alt="form image" />
             <div class="main-form-image-overlay"></div>
           </div>
-
           <form
             id="add-meal-form"
             class="main-form"
@@ -56,7 +57,7 @@
             </div>
             <div class="input-container">
               <label html="mealDesc">
-                <sub class="required">*</sub>:وصف الوجبة
+                :وصف الوجبة
               </label>
               <textarea
                 name="mealDesc"
@@ -65,7 +66,7 @@
               ></textarea>
             </div>
             <div class="input-container">
-              <label html="price"><sub class="required">*</sub> :السعر </label>
+              <label html="price"> :السعر </label>
               <div>
                 <span class="dollar-sign">$</span>
                 <input

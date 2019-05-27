@@ -29,13 +29,12 @@ mealImage.addEventListener("change", e => {
 // Getting DOM Element
 const updateForm = document.getElementById("update-meal-form");
 const mealName = document.getElementById("mealName");
-const price = document.getElementById("price");
 
 // Add Event Listeners
 updateForm.addEventListener("submit", submitForm);
 
 function submitForm(e) {
-  if (mealName.value == "" || mealDesc.value == "" || price == "") {
+  if (mealName.value == "" ) {
     e.preventDefault();
   }
 }

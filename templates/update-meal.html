@@ -22,7 +22,8 @@
 
         <nav class="header-nav">
           <a href="/">الصفحة الرئيسية</a>
-          <a href="/admin/meals">صفحة الوجبات</a>
+          <a href="/admin">صفحة الادارة</a>
+          <a class="header-active" href="/admin/meals">صفحة الوجبات</a>
           <a href="/admin/requests">صفحة الطلبات</a>
         </nav>
       </header>
@@ -58,19 +59,16 @@
             </div>
 
             <div class="input-container">
-              <label html="mealDesc"
-                ><sub class="required">*</sub> :وصف الوجبة
-              </label>
+            <label html="mealDesc"> :وصف الوجبة </label>
               <textarea
                 name="mealDesc"
                 id="mealDesc"
                 placeholder="... أدخل وصف مناسب للوجبة"
-                >{{ meal.desc }}</textarea
-              >
+            >{{meal.desc}}</textarea>
             </div>
 
             <div class="input-container">
-              <label html="price"><sub class="required">*</sub> :السعر </label>
+            <label html="price"> :السعر </label>
               <div>
                 <span class="dollar-sign">$</span>
                 <input
@@ -85,7 +83,7 @@
 
             <div class="input-container input-container-image">
               <label for="mealImage"
-                ><sub class="required">*</sub>:صورة للوجبة
+                >:صورة للوجبة
               </label>
               <label for="mealImage" class="meal-image">
                 <span id="mealImageName">برجاء إضافة صورة</span>
