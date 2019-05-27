@@ -30,7 +30,6 @@ mealImage.addEventListener("change", e => {
 const addForm = document.getElementById("add-meal-form");
 const mealName = document.getElementById("mealName");
 
-
 // Add Event Listeners
 addForm.addEventListener("submit", submitForm);
 

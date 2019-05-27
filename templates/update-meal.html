@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,16 +59,17 @@
             </div>
 
             <div class="input-container">
-            <label html="mealDesc"> :وصف الوجبة </label>
+              <label html="mealDesc"> :وصف الوجبة </label>
               <textarea
                 name="mealDesc"
                 id="mealDesc"
                 placeholder="... أدخل وصف مناسب للوجبة"
-            >{{meal.desc}}</textarea>
+                >{{ meal.desc }}</textarea
+              >
             </div>
 
             <div class="input-container">
-            <label html="price"> :السعر </label>
+              <label html="price"> :السعر </label>
               <div>
                 <span class="dollar-sign">$</span>
                 <input
@@ -82,9 +83,7 @@
             </div>
 
             <div class="input-container input-container-image">
-              <label for="mealImage"
-                >:صورة للوجبة
-              </label>
+              <label for="mealImage">:صورة للوجبة </label>
               <label for="mealImage" class="meal-image">
                 <span id="mealImageName">برجاء إضافة صورة</span>
                 <span id="meal-image-plus" class="plus">+ </span>
