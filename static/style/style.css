@@ -109,6 +109,21 @@ input {
   background: url("/static/images/assets/1.png") center center;
   background-size: cover;
 }
+
+#homepage .homepage-footer {
+  width: 100%;
+  padding: 16px 0;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+#homepage .homepage-footer span {
+  margin: 0 8px;
+  font-weight: bold;
+}
 /* #endregion HOMEPAGE*/
 
 /* #region BASIC LAYOUT */
@@ -712,6 +727,19 @@ input {
   color: #003b36;
   text-align: center;
   font-weight: 700;
+}
+#main-meals .meal-price {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #9d1c19;
+  width: 50px;
+  height: 50px;
+  background: #f4f0f6;
+  border-radius: 8px 0 0 0;
+  box-shadow: 0 2.5px 2px #01040433;
+  line-height: 50px;
+  font-weight: bold;
 }
 /* #endregion MAIN MEAL */
 

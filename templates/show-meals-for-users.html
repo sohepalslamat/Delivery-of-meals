@@ -49,14 +49,12 @@
         <div>
           {% for meal in meals %}
           <div class="meal">
-            <div>
-              <span class="meal-header">{{ meal.name }}</span>
-              <span>$5</span>
-            </div>
+            <p class="meal-header">{{ meal.name }}</p>
 
             <div>
               <a href="{{url_for('meal_details',id = meal.id)}}">
                 <img src="{{ meal.photo.url }}" alt="meal image" />
+                <span class="meal-price">$5</span>
               </a>
 
               <a class="cart" href="{{url_for('request_meal',id = meal.id)}}">
