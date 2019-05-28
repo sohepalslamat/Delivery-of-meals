@@ -857,3 +857,14 @@ input {
     grid-template-columns: 1fr;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .main-container > div {
+    height: 100%;
+    grid-template-columns: 100%;
+  }
+
+  .main-form-image {
+    display: none;
+  }
+}
